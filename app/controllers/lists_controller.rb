@@ -7,10 +7,6 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def show
-    @list = List.find(parans[:id])
-  end
-
   def create
     @list = List.new(list_params)
     if @list.save
@@ -18,6 +14,10 @@ class ListsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @list = List.find(params[:id])
   end
 
   private
